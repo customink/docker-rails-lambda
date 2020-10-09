@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: DockerRailsLambda
+
+Parameters:
+
+  RailsEnv:
+    Type: String
+    Default: staging
+    AllowedValues:
+      - staging
+      - production
+
+Resources:
+
+  RailsLambda:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: makefile
+    Properties:
+      AutoPublishAlias: live
+      CodeUri: .
+      Environment:
+        Variables:
+          RAILS_ENV: !Ref RailsEnv
+          RUBYOPT: -W0
+      Events:
+        HttpApiProxy:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref RailsHttpApi
+      FunctionName: !Sub docker-rails-lambda-${RailsEnv}
+      Handler: app.handler
+      MemorySize: 512
+      Runtime: ruby2.7
+      Timeout: 30
+
+  RailsHttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: !Ref RailsEnv
+
+Outputs:
+
+  DockerRailsLambdaHttpApiUrl:
+    Description: Lambda Invoke URL
+    Value: !Sub https://${RailsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/${RailsEnv}/
+
+  DockerRailsLambdaLambdaResourceArn:
+    Description: Lambda ARN
+    Value: RailsLambda.Arn
