@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  cicd:
+    volumes:
+      - cicd-sync:/var/task:nocopy
+
+volumes:
+  cicd-sync:
+    external: true
