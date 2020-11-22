@@ -21,13 +21,26 @@ $ ./bin/setup
 
 I am interested in measuring how fast Rails can boot.
 
+* MacBook Pro (13-inch, 2019, Four Thunderbolt 3 ports)
+* 2.8 GHz Quad-Core Intel Core i7
+
 ```shell
 $ ./bin/console
 ```
 
-| Edge2.3.4.0 (mutagen) | Edge2.4.1.0 (gRPC-FUSE) |
-| :-------------------: | :---------------------: |
-|           3s          |           34s           |
+#### Stable:
 
-* MacBook Pro (13-inch, 2019, Four Thunderbolt 3 ports)
-* 2.8 GHz Quad-Core Intel Core i7
+| 2.4.0.0 (osxfs) | 2.4.0.0 (gRPC-FUSE) |
+| :-------------: | :-----------------: |
+|        20s      |         33s         |
+
+| 2.5.0.1 (osxfs) | 2.5.0.1 (gRPC-FUSE) |
+| :-------------: | :-----------------: |
+|        16s      |         35s         |
+
+#### Edge:
+
+| 2.3.4.0 (mutagen) | 2.4.1.0 (gRPC-FUSE) | 2.5.1.0 (gRPC-FUSE) |
+| :---------------: | :-----------------: | :-----------------: |
+|         3s        |         34s         |          52s        |
+

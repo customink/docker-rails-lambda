@@ -6,5 +6,5 @@ bundle config set --local path 'vendor/bundle-dev'
 bundle install
 ./bin/yarn
 
-echo '== Cleaning directories =='
-./bin/rails log:clear tmp:clear
+# echo '== Cleaning directories =='
+# ./bin/rails log:clear tmp:clear
