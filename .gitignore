@@ -37,4 +37,6 @@ yarn-debug.log*
 .env.*
 !.env.development
 !.env.test
+!.env
 /vendor/bundle-dev
+.docker-sync/

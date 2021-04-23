@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
+if [[ "$OSTYPE" == *"darwin"* ]]; then
+  docker-sync start
+  docker-compose up --detach
+fi
+
 docker-compose run \
    cicd \
    ./bin/_setup

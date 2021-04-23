@@ -2,6 +2,7 @@ version: '3.7'
 services:
   cicd:
     build: .
+    command: tail -f /dev/null
     environment:
       - RUBYOPT=-W0
       - RAILS_ENV=${RAILS_ENV-development}
