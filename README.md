@@ -1,12 +1,11 @@
-
 # Docker Rails Lambda Test Project
 
 A simple Rails Lambda Project on Docker to test Mac filesystems (https://github.com/docker/roadmap/issues/7) benchmarks for the Docker team. Details include:
 
-* Rails v6
-* Ruby 2.7
-* AWS SAM base Docker image.
-* Installs Node and yarn.
+- Rails v6
+- Ruby 2.7
+- AWS SAM base Docker image.
+- Installs Node and yarn.
 
 ## Setup
 
@@ -21,14 +20,18 @@ $ ./bin/setup
 
 I am interested in measuring how fast Rails can boot.
 
-* MacBook Pro (13-inch, 2019, Four Thunderbolt 3 ports)
-* 2.8 GHz Quad-Core Intel Core i7
+- MacBook Pro (13-inch, 2019, Four Thunderbolt 3 ports)
+- 2.8 GHz Quad-Core Intel Core i7
 
 ```shell
 $ ./bin/console
 ```
 
 #### Stable:
+
+| 3.5.2 (osxfs) | 3.5.2 (gRPC-FUSE) |
+| :-----------: | :---------------: |
+|      22s      |        35s        |
 
 | 3.3.1 (osxfs) | 3.3.1 (gRPC-FUSE) |
 | :-----------: | :---------------: |
@@ -50,15 +53,14 @@ $ ./bin/console
 
 | 2.5.0.1 (osxfs) | 2.5.0.1 (gRPC-FUSE) |
 | :-------------: | :-----------------: |
-|        16s      |         35s         |
+|       16s       |         35s         |
 
 | 2.4.0.0 (osxfs) | 2.4.0.0 (gRPC-FUSE) |
 | :-------------: | :-----------------: |
-|        20s      |         33s         |
+|       20s       |         33s         |
 
 #### Edge:
 
 | 2.3.4.0 (mutagen) | 2.4.1.0 (gRPC-FUSE) | 2.5.1.0 (gRPC-FUSE) |
 | :---------------: | :-----------------: | :-----------------: |
-|         3s        |         34s         |          52s        |
-
+|        3s         |         34s         |         52s         |
