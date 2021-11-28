@@ -22,12 +22,17 @@ I am interested in measuring how fast Rails can boot.
 
 - MacBook Pro (13-inch, 2019, Four Thunderbolt 3 ports)
 - 2.8 GHz Quad-Core Intel Core i7
+- Monterey (starting with 4.3.0)
 
 ```shell
 $ ./bin/console
 ```
 
 #### Stable:
+
+| 4.3.0.71111 (VirtuoFS) |
+| :--------------------: |
+|          30s           |
 
 | 3.5.2 (osxfs) | 3.5.2 (gRPC-FUSE) |
 | :-----------: | :---------------: |
